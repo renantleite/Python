@@ -51,4 +51,4 @@ destinatario = input()
 duracao = int(input())
 
 # Chama o método fazer_chamada do objeto usuario_pre_pago e imprime o resultado:
-print(usuario_pre_pago.fazer_chamada(destinatario, duracao))
+print(usuario_pre_pago.fazer_chamada(destinatario,duracao))
