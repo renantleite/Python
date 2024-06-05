@@ -18,15 +18,13 @@ def Insert_1(cursor,conexao,nome,mail):
     conexao.commit()
 def Insert_varios(cursor,conexao,dados):
     cursor.executemany("INSERT INTO clientes (nome, mail) VALUES (?,?);",dados)
-    conexao.commit()
-    
+    conexao.commit() 
 def Update (cursor,conexao,nome,mail,id):
     data = (nome,mail,id)
     cursor.execute(
         "UPDATE clientes SET nome = ?, mail = ? WHERE id = ?;",data
     )
     conexao.commit()
-
 def excluir(cursor,conexao,id):
     data = (id,)
     cursor.execute(
@@ -37,18 +35,16 @@ def recuperar_cliente(cursor,id):
     cursor.execute(
         "SELECT nome,mail FROM clientes WHERE id = ?;",(id,))
     return cursor.fetchone()
-
-
 def listar_clientes(cursor):
     cursor.execute(
-        "SELECT nome,mail FROM clientes\n"
+        "SELECT nome FROM clientes\n"
     )
     return cursor.fetchall()
 
-
 dados = [
-        ("Maria","oeoeo@.com"),
-        ("Pedro","ooeo@.com"),
-        ("Joao","oeoeoeo@.com")
+        ("MP","mpinto@.com"),
+        ("Nanda","nanda@.com"),
+        ("Joao paulo","jp@.com")
     ]
-print(listar_clientes(cursor))
+
+Insert_varios(cursor,conexao,dados)
